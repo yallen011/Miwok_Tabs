@@ -3,8 +3,7 @@ package com.andorid.miwok_tabs.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
-import android.view.View;
+
 
 import com.andorid.miwok_tabs.fragment.ColorsFragment;
 import com.andorid.miwok_tabs.fragment.FamilyFragment;
@@ -13,19 +12,34 @@ import com.andorid.miwok_tabs.fragment.PhrasesFragment;
 
 /**
  * Created by Yvonne on 6/6/2017.
+ * {@link CategoryPageAdapter} is a {@link FragmentPagerAdapter} that can provide the layout for
+ * each list item based on a data source which is a list of {@link com.andorid.miwok_tabs.Word} objects.
  */
 
 public class CategoryPageAdapter extends FragmentPagerAdapter {
 
+    /**
+     * Create a new {@link CategoryPageAdapter} object.
+     *
+     * @param fm is the fragment manager that will keep each fragment's state in the adapter
+     *           across swipes.
+     */
     public CategoryPageAdapter(FragmentManager fm) {
         super(fm);
     }
 
+    /**
+     * Return the total number of pages.
+     */
     @Override
     public int getCount() {
         return 4;
     }
 
+
+    /**
+     * Return the {@link Fragment} that should be displayed for the given page number.
+     */
     @Override
     public Fragment getItem(int position) {
 
