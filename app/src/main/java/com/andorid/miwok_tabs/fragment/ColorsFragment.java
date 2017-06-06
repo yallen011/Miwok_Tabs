@@ -11,6 +11,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.andorid.miwok_tabs.R;
@@ -72,6 +73,45 @@ public class ColorsFragment extends Fragment {
         // word_list.xml layout file.
         ListView listView = (ListView) rootView.findViewById(R.id.list);
         listView.setBackgroundColor(Color.parseColor("#8800A0"));
+        listView.setAdapter(adapter);
+
+        //plays the audio for number one when any item in the list is clicked click
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+                //release current resources being used for media player if it currently exists
+                //because we are about to play a different sound file.
+                releaseMediaPlayer();
+
+                //get the word located in the list that is at same position as the item clicked in the list
+                Word currentWord = words.get(position);
+
+
+
+                // Request audio focus for playback
+                int result = mAudioManager.requestAudioFocus(mAudioFocusChangeListener,
+                        // Use the music stream.
+                        AudioManager.STREAM_MUSIC,
+                        // Request temporary focus.
+                        AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+
+                if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+
+                    //create the medial player with the audio file that is stored in the list for that word.
+                    mMediaPlayer = MediaPlayer.create(getActivity(), currentWord.getmMiwokAudio());
+                    //play the file
+                    mMediaPlayer.start();
+
+                    //listener to stop and release the media player and resources being used
+                    // once the sounds has finished playing
+                    mMediaPlayer.setOnCompletionListener(mCompletionListener);
+                }
+
+
+            }
+        });
 
 
 

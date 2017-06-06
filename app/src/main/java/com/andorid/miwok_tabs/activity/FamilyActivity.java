@@ -4,9 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.andorid.miwok_tabs.R;
-import com.andorid.miwok_tabs.fragment.NumbersFragment;
+import com.andorid.miwok_tabs.fragment.FamilyFragment;
 
-public class NumbersActivity extends AppCompatActivity {
+
+public class FamilyActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +18,7 @@ public class NumbersActivity extends AppCompatActivity {
         //the layout with the id "container" has match_parent for width and height so the
         //fragment will take the whole screen
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, new NumbersFragment())
+                .replace(R.id.container, new FamilyFragment())
                 .commit();
     }
 }
