@@ -50,7 +50,7 @@ public class FamilyFragment extends Fragment {
 
         //Create and setup the {@link AudioManager} to request audio focus
         //get the activity object instance that encloses the current Fragment
-        //{@link NumbersActivity} first because {@link Fragment} does not have access to system
+        //{@link MainActivity} first because {@link Fragment} does not have access to system
         //services
         mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
 
@@ -69,7 +69,7 @@ public class FamilyFragment extends Fragment {
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
         // adapter knows how to create list items for each item in the list.
-        //use getActivity() got get the context(NumbersActivity) because NumbersFragment is not a
+        //use getActivity() got get the context(MainActivity) because FamilyFragment is not a
         //valid context
         WordAdapter adapter = new WordAdapter(getActivity(), words);
 

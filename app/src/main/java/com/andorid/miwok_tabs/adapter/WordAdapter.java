@@ -44,10 +44,10 @@ public class WordAdapter extends ArrayAdapter<Word> {
     public WordAdapter(Context context, ArrayList<Word> words) {
 
         //Here we initialize the ArrayAdapter's internal storage for the context and the list.
-        //the first parameter, context is the NumbersActivity in this case
+        //the first parameter, context is the MainActivity in this case
         //the second parameter, the layout resource id is 0 because we are not going to use the ArrayAdapter to inflate or create a single text view which is the default, we are going to use a custom view.
         //android.R.layout.simple_list_item_1 is an example of a layout resouce id that has only 1 textview
-        //the third parameter, words is the ArrayList of Word objects passed in the declaration from the NumbersActivity.java class
+        //the third parameter, words is the ArrayList of Word objects passed in the declaration from the Fragment
         super(context, 0, words);
     }
 
