@@ -1,14 +1,18 @@
 package com.andorid.miwok_tabs.adapter;
 
+import android.content.res.Resources;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 
+import com.andorid.miwok_tabs.R;
 import com.andorid.miwok_tabs.fragment.ColorsFragment;
 import com.andorid.miwok_tabs.fragment.FamilyFragment;
 import com.andorid.miwok_tabs.fragment.NumbersFragment;
 import com.andorid.miwok_tabs.fragment.PhrasesFragment;
+
+
 
 /**
  * Created by Yvonne on 6/6/2017.
@@ -18,6 +22,7 @@ import com.andorid.miwok_tabs.fragment.PhrasesFragment;
 
 public class CategoryPageAdapter extends FragmentPagerAdapter {
 
+
     /**
      * Create a new {@link CategoryPageAdapter} object.
      *
@@ -26,6 +31,7 @@ public class CategoryPageAdapter extends FragmentPagerAdapter {
      */
     public CategoryPageAdapter(FragmentManager fm) {
         super(fm);
+        //get the resource from context to get the category names in strings.xml
     }
 
     /**
@@ -56,4 +62,22 @@ public class CategoryPageAdapter extends FragmentPagerAdapter {
                 return null;
         }
     }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        switch (position){
+            case 0:
+                return  "Numbers";
+            case 1:
+                return "Family";
+            case 2:
+                return "Colors";
+            case 3:
+                return "Phrases";
+            default:
+                return null;
+        }
+    }
+
+
 }
